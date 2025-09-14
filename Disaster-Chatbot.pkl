@@ -1,0 +1,12 @@
+import joblib
+
+# Load saved model and vectorizer
+model = joblib.load("disaster_chatbot_model.pkl")
+vectorizer = joblib.load("vectorizer.pkl")
+
+# Example prediction
+message = "There is a flood in my area, need urgent help!"
+msg_vec = vectorizer.transform([message])
+prediction = model.predict(msg_vec)
+
+print("Prediction:", prediction[0])
